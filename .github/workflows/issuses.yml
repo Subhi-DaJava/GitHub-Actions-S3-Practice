@@ -1,0 +1,13 @@
+name: Using Issues event & GitHub Context  
+on:
+  issues:
+    
+jobs:
+    output-info:
+        runs-on: ubuntu-latest
+        steps:
+          
+          - name: Print GitHub Context    
+            env:
+                GITHUB_CONTEXT: ${{ toJson(github.event) }}
+            run: echo "$GITHUB_CONTEXT"
